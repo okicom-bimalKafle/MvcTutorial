@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Mvc.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MvcContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcContext") ?? throw new InvalidOperationException("Connection string 'MvcContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
