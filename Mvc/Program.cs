@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Mvc.Data;
+using Mvc.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MvcContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MvcContext") ?? throw new InvalidOperationException("Connection string 'MvcContext' not found.")));
@@ -8,8 +10,15 @@ builder.Services.AddDbContext<MvcContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
 
+
+var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    DataSeeder.Initialize(services);
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
