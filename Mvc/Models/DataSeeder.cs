@@ -44,6 +44,69 @@ namespace Mvc.Models
                         ReleaseDate = DateTime.Parse("1959-4-15"),
                         Genre = "Western",
                         Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "Rio",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "Rio Zen1",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "Rio Bravo 2",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = " Bravo",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "Jhonny Bravo",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "Commando ",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "Family Guy ",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "OMG",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
+                    },
+                    new Movie
+                    {
+                        Title = "GodFather ",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Western",
+                        Price = 3.99M
                     }
                 );
                 context.SaveChanges();

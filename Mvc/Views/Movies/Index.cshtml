@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Mvc.Models.Movie>
+﻿@model X.PagedList.IPagedList<Mvc.Models.Movie>
+@using X.PagedList.Mvc.Core;
+
 
 @{
     ViewData["Title"] = "Index";
@@ -9,20 +11,28 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+@using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+{
+    <div class="form-group form-inline">
+        Find by name: @Html.TextBox("SearchString",  ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Search" })
+        <input class="btn btn-primary" type="submit" value="Search" />
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+               Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
+               Release Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genre)
+                Genre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+               Price
             </th>
             <th></th>
         </tr>
@@ -51,3 +61,8 @@
 }
     </tbody>
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter }))
+
